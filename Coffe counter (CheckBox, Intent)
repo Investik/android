@@ -1,0 +1,89 @@
+package com.example.alex.counter;
+
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.net.Uri;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.text.NumberFormat;
+
+public class MainActivity extends AppCompatActivity {
+    TextView price;
+    TextView count;
+    int res;
+    int cup;
+    int pr;
+    String addition="";
+    String addition1="";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        count = (TextView) findViewById(R.id.quant);
+        new Toast(this).makeText(this,"Hi this is counter app", Toast.LENGTH_SHORT).show();
+
+
+    }
+    public void order(View view){
+            cup=getCup();
+//        price = (TextView) findViewById(R.id.price);
+//        // if (addCream())
+//
+//        price.setText("Name " + ((EditText) findViewById(R.id.name)).getText().toString()
+//                    + addition+ addition1+"\nTotal: " + NumberFormat.getCurrencyInstance().format(cup * (5+pr))
+//                    + "\nThank you!");
+        String text = "Name " + ((EditText) findViewById(R.id.name)).getText().toString()
+                     + addition+ addition1+"\nTotal: " + NumberFormat.getCurrencyInstance().format(cup * (5 + pr))
+                     + "\nThank you!";
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:"));
+        intent.putExtra(Intent.EXTRA_TEXT, text);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        } else new Toast(this).makeText(this,"No messenger", Toast.LENGTH_LONG).show();
+
+
+    }
+    public void display(int res){
+        count.setText(String.valueOf(res));
+    }
+    public void decrease(View view){
+        cup=getCup();
+        if (cup>0) res = cup-1;
+        else res = 0;
+        display(res);
+    }
+    public void increase(View view){
+        cup=getCup();
+        res = cup+1;
+        display(res);
+    }
+    public int getCup(){
+        return Integer.parseInt(count.getText().toString());
+    }
+    public boolean addCream(){
+        return ((CheckBox) findViewById(R.id.checkBox)).isChecked();
+    }
+    public void additional(View view){
+        boolean checked = ((CheckBox) view).isChecked();
+        switch (view.getId()){
+            case R.id.checkBox :
+                if(checked) { addition = "\nCream is added"; pr+=1;} else addition="\nCream is not added";
+                break;
+            case R.id.Chocolate :
+                if(checked) { addition1 = "\nChocolate is added"; pr+=2;} else addition1 = "\nChocolate is not added";
+                break;
+
+        }
+    }
+
+}
