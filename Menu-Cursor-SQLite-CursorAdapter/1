@@ -1,0 +1,40 @@
+A Cursor lets you read from and
+write to the database.
+ You create a cursor by calling the
+SQLiteDatabase query()
+method. Behind the scenes, this builds
+a SQL SELECT statement.
+ The getWritableDatabase()
+method returns a
+SQLiteDatabase object that
+allows you to read from and write to
+the database.
+ The getReadableDatabase()
+returns a SQLiteDatabase
+object. This gives you read-only
+access to the database. It may also
+allow you to read from and write to the
+database, but this isn’t guaranteed.
+ Navigate through a cursor using the
+moveTo*() methods.
+ Get values from a cursor using the
+get*() methods.
+ Close cursors and database
+connections after you’ve finished with
+them.
+ A CursorAdapter is an
+adapter that works with cursors.
+Use SimpleCursorAdapter
+to populate a ListView with the
+values returned by a cursor.
+ Design your app so that you put useful
+content in your top-level activity.
+ The CursorAdapter
+changeCursor() method
+replaces the cursor currently used by
+a cursor adapter to a new cursor that
+you provide. It then closes the old
+cursor.
+ Run your database code in
+a background thread using
+AsyncTask.
