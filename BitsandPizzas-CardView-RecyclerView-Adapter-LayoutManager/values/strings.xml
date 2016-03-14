@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">BitsandPizzas</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_create_order">Create Order</string>
+    <string name="title_activity_order">Create Order</string>
+    <string name="action_share">Share</string>
+    <string name="title_activity_pizza_detail">Order Activity</string>
+    <string name="title_activity_cocktail_detail">Order Activity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_top">We offer a range of freshly baked pizza and cocktails. Try some.</string>
+    <string-array name="pizzas">
+        <item>Diavolo</item>
+        <item>Bulgarian</item>
+    </string-array>
+    <string-array name="pasta">
+        <item>Bolognese</item>
+        <item>Italiano</item>
+    </string-array>
+    <string-array name="stores">
+        <item>Lenina</item>
+        <item>Mira</item>
+    </string-array>
+    <string-array name="titles">
+        <item>Home</item>
+        <item>Pizzas</item>
+        <item>Cocktails</item>
+        <item>Stores</item>
+    </string-array>
+    <string name="open_drawer">Open drawer</string>
+    <string name="close_drawer">Close drawer</string>
+</resources>
